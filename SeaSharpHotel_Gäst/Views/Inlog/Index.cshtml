@@ -1,0 +1,34 @@
+﻿@model SeaSharpHotel_Gäst.Models.InlogModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+
+        <table>
+            <tr>
+                <td>Gäst Mejl</td>
+                <td>@Html.EditorFor(m => m.GastMejl)</td>
+            </tr>
+            <tr>
+                <td>Lösenord</td>
+                <td>@Html.PasswordFor(m => m.Losenord)</td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Logga in" /></td>
+            </tr>
+
+        </table>
+        <p>@ViewBag.FelMeddelande</p>
+    }
+</body>
+</html>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pedro\\Desktop\\Systemutveckling\\År2\\Arkitektur\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {}
+    "C:\\Users\\pedro\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pedro\\Desktop\\Systemutveckling\\År2\\Arkitektur\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {
+    "C:\\Users\\pedro\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pedro\\Desktop\\Systemutveckling\\År2\\Arkitektur\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
+        "projectUniqueName": "C:\\Users\\pedro\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
         "projectName": "SeaSharpHotel_Gäst",
-        "projectPath": "C:\\Users\\pedro\\Desktop\\Systemutveckling\\År2\\Arkitektur\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
+        "projectPath": "C:\\Users\\pedro\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
         "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pedro\\Desktop\\Systemutveckling\\År2\\Arkitektur\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst\\obj\\",
+        "outputPath": "C:\\Users\\pedro\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -45,6 +45,10 @@
           "targetAlias": "net5.0",
           "dependencies": {
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[5.0.2, )"
             }
