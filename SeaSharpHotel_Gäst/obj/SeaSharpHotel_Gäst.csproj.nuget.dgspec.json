@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pedro\\Desktop\\Systemutveckling\\År2\\Arkitektur\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {}
+    "C:\\Users\\Elmira\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pedro\\Desktop\\Systemutveckling\\År2\\Arkitektur\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {
+    "C:\\Users\\Elmira\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pedro\\Desktop\\Systemutveckling\\År2\\Arkitektur\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
+        "projectUniqueName": "C:\\Users\\Elmira\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
         "projectName": "SeaSharpHotel_Gäst",
-        "projectPath": "C:\\Users\\pedro\\Desktop\\Systemutveckling\\År2\\Arkitektur\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
-        "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pedro\\Desktop\\Systemutveckling\\År2\\Arkitektur\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst\\obj\\",
+        "projectPath": "C:\\Users\\Elmira\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
+        "packagesPath": "C:\\Users\\Elmira\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Elmira\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Elmira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"

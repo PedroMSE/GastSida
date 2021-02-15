@@ -23,6 +23,7 @@ namespace SeaSharpHotel_Gäst.Controllers
             return View();
         }
 
+
         public IActionResult Privacy()
         {
             return View();
