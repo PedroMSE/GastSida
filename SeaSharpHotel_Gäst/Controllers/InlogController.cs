@@ -37,7 +37,7 @@ namespace SeaSharpHotel_Gäst.Controllers
                 }
                     
             }
-            ViewBag.FelMeddelande = "Det gick inte att logga in";
+            ViewBag.FelMeddelande = "Login failed. Please try again";
             return View();
         }
         private bool KontrolleraGast(InlogModel gastInfo)
