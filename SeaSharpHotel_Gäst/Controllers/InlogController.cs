@@ -33,7 +33,7 @@ namespace SeaSharpHotel_Gäst.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Gast");
                 }
                     
             }
