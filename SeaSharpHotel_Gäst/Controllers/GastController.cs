@@ -16,7 +16,11 @@ namespace SeaSharpHotel_Gäst.Controllers
         {
             return View();
         }
+
+
+#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
         public async Task<ActionResult> SignOut()
+#pragma warning restore CS0114 // Member hides inherited member; missing override keyword
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
