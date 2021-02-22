@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "33ofO6OOlg4ABkNdrs7xOtysPTyzS2pVT4Wk9ZAwn/uhNkUAjdKF+BxlaM3Fkm55RwRbIRfb6MfpV5HBD6QHSQ==",
+  "dgSpecHash": "4GJufQMDmnmtrmzFKmPgHvXQb9E2r5sUW/+BbMhMtnXgT/BGMlt2RhBknF8R/QlgUA5nxAz37fTRYj0+QvpT3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pedro\\Source\\Repos\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
+  "projectFilePath": "C:\\Users\\pedro\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pedro\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
