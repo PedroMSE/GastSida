@@ -1,18 +1,72 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<SeaSharpHotel_Gäst.Models.Guest>
+
 @{
+    ViewData["Title"] = "Index";
 }
 
-<!DOCTYPE html>
-<html>
-<body>
-    <h1>Du har kommit till adminssidan</h1>
+<h1>Admin page</h1>
 
-    @Html.ActionLink("Tillbaka till första sidan", "Index", "Home")
-
-
-
-</body>
-</html>
-
+<p>
+    <a asp-action="Create">Add a new guest</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Adress (Street)
+            </th>
+            <th>
+                Post Code
+            </th>
+            <th>
+                City
+            </th>
+            <th>
+                Telefone Number
+            </th>
+            <th>
+                E-Mail
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.street_Adress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.postalCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.city)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phonenumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.e_Mail)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
