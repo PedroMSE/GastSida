@@ -1,0 +1,36 @@
+﻿@model AdminSeaSharp.Models.Inlog
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+
+        <table>
+            <tr>
+                <td>User email</td>
+                <td>@Html.EditorFor(m => m.UserName)</td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>@Html.PasswordFor(m => m.Password)</td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Log in" /></td>
+            </tr>
+
+        </table>
+        <p>@ViewBag.FelMeddelande</p>
+    }
+</body>
+</html>
+

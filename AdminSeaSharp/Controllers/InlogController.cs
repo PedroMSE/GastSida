@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SeaSharpHotel_Gäst.Models;
+﻿using AdminSeaSharp.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 
-namespace SeaSharpHotel_Gäst.Controllers
+namespace AdminSeaSharp.Controllers
 {
     public class InlogController : Controller
     {
@@ -16,35 +16,36 @@ namespace SeaSharpHotel_Gäst.Controllers
         {
             return View();
         }
+
         [HttpPost]
-        public async Task<IActionResult> Index(InlogModel gastInfo, string returnUrl = null)
+        public async Task<IActionResult> Index(Inlog adminInfo, string returnUrl = null)
         {
 
-            bool gastGiltig = KontrolleraGast(gastInfo);
-            if (gastGiltig==true)
+            bool gastGiltig = KontrolleraGast(adminInfo);
+            if (gastGiltig == true)
             {
                 var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-                identity.AddClaim(new Claim(ClaimTypes.Name, gastInfo.GastMejl));
+                identity.AddClaim(new Claim(ClaimTypes.Name, adminInfo.UserName));
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
 
                 if (returnUrl != null)
-                {
+
+                {  //vi tror att här ska länkas till inlogservicen..
                     return Redirect(returnUrl);
                 }
                 else
                 {
-                    return RedirectToAction("Index", "Gast");
+                    return RedirectToAction("Index", "Admin");
                 }
-                    
+
             }
             ViewBag.FelMeddelande = "Login failed. Please try again";
             return View();
         }
-        private bool KontrolleraGast(InlogModel gastInfo)
+        private bool KontrolleraGast(Inlog adminInfo)
         {
-            if (gastInfo.GastMejl=="Pedro" && gastInfo.Losenord=="Pass")
-            {
-                //gissar att vi behöver länk till inlogservice
+            if (adminInfo.UserName == "Alto" && adminInfo.Password == "Password")
+            { //
                 return true;
             }
             else
@@ -52,6 +53,7 @@ namespace SeaSharpHotel_Gäst.Controllers
                 return false;
             }
         }
-        
+
     }
 }
+
