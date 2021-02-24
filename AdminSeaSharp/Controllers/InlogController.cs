@@ -21,7 +21,7 @@ namespace AdminSeaSharp.Controllers
         public async Task<IActionResult> Index(Inlog adminInfo, string returnUrl = null)
         {
 
-            bool gastGiltig = KontrolleraGast(adminInfo);
+            bool gastGiltig = KontrolleraAdmin(adminInfo);
             if (gastGiltig == true)
             {
                 var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
@@ -42,8 +42,8 @@ namespace AdminSeaSharp.Controllers
             ViewBag.FelMeddelande = "Login failed. Please try again";
             return View();
         }
-        private bool KontrolleraGast(Inlog adminInfo)
-        {
+        private bool KontrolleraAdmin(Inlog adminInfo)
+        {    //anrop till webbservicen grupp3. skicka med adminInfo
             if (adminInfo.UserName == "Alto" && adminInfo.Password == "Password")
             { //
                 return true;

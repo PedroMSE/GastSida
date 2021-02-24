@@ -32,8 +32,10 @@ namespace SeaSharpHotel_Gäst.Controllers
         }
 
         // GET: AdminController/Create
-        public ActionResult Create()
+        public IActionResult Create()
         {
+            
+
             return View();
         }
 
@@ -44,6 +46,9 @@ namespace SeaSharpHotel_Gäst.Controllers
         {
             try
             {
+                
+                    
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -55,6 +60,7 @@ namespace SeaSharpHotel_Gäst.Controllers
         // GET: AdminController/Edit/5
         public ActionResult Edit(int id)
         {
+            
             return View();
         }
 
