@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = null;
+    ViewData["Title"] = "My Pages";
 }
 
 <!DOCTYPE html>
@@ -8,11 +8,20 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
+
+    <h2>My Pages</h2>
+    <p>@Html.ActionLink("< Back to login page", "Index", "Inlog")</p>
+    <br />
+
     <p>@Html.ActionLink("User Profile", "Index", "Profile")</p>
-    <p>Bookings</p>
+    <br />
+
     <p>@Html.ActionLink("Log out", "Signout")</p>
+
+    <h2>Bookings</h2>
 </body>
 </html>

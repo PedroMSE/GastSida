@@ -7,16 +7,26 @@ namespace SeaSharpHotel_Gäst.Models
 {
     public class Guest
     {
-        public int id { get; set; }
-        public string firstname { get; set; }
-        public string lastname { get; set; }
-        public string street_Adress { get; set; }
-        public int postalCode { get; set; }
-        public string city { get; set; }
-        public int phonenumber { get; set; }
-        public string type { get; set; }
-        public string status { get; set; }
-        public string e_Mail { get; set; }
-        public string password { get; set; }
+        public int Id { get; set; }
+
+        public string Firstname { get; set; }
+
+        public string Lastname { get; set; }
+
+        public string Street_Adress { get; set; }
+
+        public int PostalCode { get; set; }
+
+        public string City { get; set; }
+
+        public int Phonenumber { get; set; }
+
+        public string Type { get; set; }
+
+        public string Status { get; set; }
+
+        public string E_Mail { get; set; }
+
+        public string Password { get; set; }
     }
 }

@@ -1,73 +1,77 @@
 ﻿@model IEnumerable<SeaSharpHotel_Gäst.Models.Guest>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Profile";
 }
+
+<p>@Html.ActionLink("< Back to my pages", "Index", "Gast")</p>
+
+<link href="~/css/StyleSheet.css" rel="stylesheet" />
 @foreach (var item in Model)
 {
-    <h1>@Html.DisplayFor(modelItem=>item.firstname, item.lastname)</h1>
+    <h1>@Html.DisplayFor(modelItem => item.Firstname, item.Lastname)</h1>
 }
-    <p>
-        <a asp-action="Edit">Edit Profile</a>
-    </p>
-    <table class="table">
-        <thead>
+<p>
+    <a asp-action="Edit">Edit Profile</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Adress (Street)
+            </th>
+            <th>
+                Post Code
+            </th>
+            <th>
+                City
+            </th>
+            <th>
+                Telefone Number
+            </th>
+            <th>
+                E-Mail
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>
-                    First Name
-                </th>
-                <th>
-                    Last Name
-                </th>
-                <th>
-                    Adress (Street)
-                </th>
-                <th>
-                    Post Code
-                </th>
-                <th>
-                    City
-                </th>
-                <th>
-                    Telefone Number
-                </th>
-                <th>
-                    E-Mail
-                </th>
-                <th></th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Street_Adress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostalCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phonenumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.E_Mail)
+                </td>
+                <!--<td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>-->
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.firstname)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.lastname)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.street_Adress)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.postalCode)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.city)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.phonenumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.e_Mail)
-                    </td>
-                    <!--<td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </td>-->
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
