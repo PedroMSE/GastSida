@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SeaSharpHotel_Gäst.Models
+namespace AdminSeaSharp.Models
 {
     public class Guest
     {

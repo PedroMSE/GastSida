@@ -1,11 +1,12 @@
-﻿@model SeaSharpHotel_Gäst.Models.Guest
+﻿@model AdminSeaSharp.Models.Guest
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Delete";
 }
+<link href="~/css/StyleSheet.css" rel="stylesheet" />
+<h1>Delete</h1>
 
-<h1>Details</h1>
-
+<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Guest</h4>
     <hr />
@@ -77,8 +78,9 @@
             @Html.DisplayFor(model => model.Password)
         </dd>
     </dl>
-</div>
-<div>                                      <!--här var bortkommenterad -->
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id  }) |
-    <a asp-action="Index">Back to List</a>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
 </div>
