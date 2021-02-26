@@ -54,7 +54,7 @@ namespace AdminSeaSharp.Controllers
         // POST: AdminController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Guest guest)
         {
             try
             {

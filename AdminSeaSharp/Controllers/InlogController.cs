@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace AdminSeaSharp.Controllers
 {
@@ -20,7 +23,7 @@ namespace AdminSeaSharp.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(Inlog adminInfo, string returnUrl = null)
         {
-
+            //vi tror att här ska länkas till inlogservicen..
             bool AdminGiltig = KontrolleraAdmin(adminInfo);
             if (AdminGiltig == true)
             {
@@ -30,7 +33,7 @@ namespace AdminSeaSharp.Controllers
 
                 if (returnUrl != null)
 
-                {  //vi tror att här ska länkas till inlogservicen..
+                {  
                     return Redirect(returnUrl);
                 }
                 else
@@ -44,13 +47,30 @@ namespace AdminSeaSharp.Controllers
         }
         private bool KontrolleraAdmin(Inlog adminInfo)
         {    //anrop till webbservicen grupp3. skicka med adminInfo
-            if (adminInfo.UserName == "Alto" && adminInfo.Password == "Password")
+
+
+            using (var httpClient = new HttpClient())
             {
-                return true;
-            }
-            else
-            {
-                return false;
+                StringContent content = new StringContent(JsonConvert.SerializeObject(adminInfo), Encoding.UTF8, "application/json");
+                LoginResponse recievedResponse; 
+                using (var response = httpClient.PostAsync("https://informatik10.ei.hv.se/UserService/Login", content))
+                {
+                    string apiResponse = response.Result.Content.ReadAsStringAsync().ToString();
+
+                    recievedResponse = JsonConvert.DeserializeObject<LoginResponse>(apiResponse);
+
+
+                    if (recievedResponse.Status == true)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+
+                }
             }
         }
 
