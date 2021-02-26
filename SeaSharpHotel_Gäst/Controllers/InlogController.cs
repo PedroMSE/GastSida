@@ -44,6 +44,7 @@ namespace SeaSharpHotel_Gäst.Controllers
         {
             if (gastInfo.GastMejl=="Pedro" && gastInfo.Losenord=="Pass")
             {
+                //gissar att vi behöver länk till inlogservice
                 return true;
             }
             else

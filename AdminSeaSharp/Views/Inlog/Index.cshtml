@@ -1,0 +1,44 @@
+﻿@model AdminSeaSharp.Models.Inlog
+@{
+    ViewData["Title"] = "Sign In";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <h4>Sign in as administrator</h4>
+
+        <table>
+      
+            <tr>
+                <td>Username:</td>
+                <td>@Html.EditorFor(m => m.UserName)</td>
+            </tr>
+ 
+            <tr>
+                <td>Password:</td>
+                <td>@Html.PasswordFor(m => m.Password)</td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" value="Sign In" /></td>
+            </tr>
+
+        </table>
+        <p>@ViewBag.FelMeddelande</p>
+    }
+
+    @Html.ActionLink("To admin pages >", "Index", "Admin")
+
+</body>
+</html>
+

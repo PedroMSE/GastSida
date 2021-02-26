@@ -1,6 +1,7 @@
 ﻿@model SeaSharpHotel_Gäst.Models.InlogModel
+
 @{
-    Layout = null;
+    ViewData["Title"] = "Sign In";
 }
 
 <!DOCTYPE html>
@@ -8,27 +9,37 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
+
+    <h3>Sign In</h3>
+    <br />
+
     @using (Html.BeginForm())
     {
-
         <table>
             <tr>
-                <td>User email</td>
+                <td>User email:</td>
                 <td>@Html.EditorFor(m => m.GastMejl)</td>
             </tr>
             <tr>
-                <td>Password</td>
+                <td>Password:</td>
                 <td>@Html.PasswordFor(m => m.Losenord)</td>
             </tr>
             <tr>
-                <td><input type="submit" value="Log in" /></td>
+                <td><input type="submit" value="Sign in" /></td>
             </tr>
 
         </table>
         <p>@ViewBag.FelMeddelande</p>
+
+        <br />
+        @Html.ActionLink("To my pages >", "Index", "Gast")
+        <br />
+        @Html.ActionLink("< Back to homepage", "Index", "Home")
+
     }
 </body>
 </html>

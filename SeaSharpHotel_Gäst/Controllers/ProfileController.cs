@@ -29,15 +29,13 @@ namespace SeaSharpHotel_Gäst.Controllers
             return View(guests);
         }
 
-
-#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
+        #pragma warning disable CS0114 // Member hides inherited member; missing override keyword
+        
         public async Task<ActionResult> SignOut()
-#pragma warning restore CS0114 // Member hides inherited member; missing override keyword
+        #pragma warning restore CS0114 // Member hides inherited member; missing override keyword
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-            return RedirectToAction("Index", "Home");
-
+            return RedirectToAction("Index", "Inlog");
         }
 
         // GET: ProfileController/Details/5

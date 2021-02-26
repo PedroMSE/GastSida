@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = null;
+    ViewData["Title"] = "Hotel SeaSharp";
 }
 
 <!DOCTYPE html>
@@ -8,9 +8,19 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
-    <p>@Html.ActionLink("Log in", "Index", "Inlog")</p>
+    <div class="text-center">
+        <h1 class="display-4">SeaSharpHotel_Gäst</h1>
+    </div>
+    <br />
+
+    <p>Have an account? Here you can @Html.ActionLink("sign in", "Index", "Inlog")</p>
+    <br />
+
+    <p>@Html.ActionLink("Guest management", "Index", "Admin")</p>
+
 </body>
 </html>
