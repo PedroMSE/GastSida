@@ -1,4 +1,4 @@
-﻿@model SeaSharpHotel_Gäst.Models.InlogModel
+﻿@model SeaSharpHotel_Gäst.Models.GuestLogin
 
 @{
     ViewData["Title"] = "Sign In";
@@ -22,11 +22,11 @@
         <table>
             <tr>
                 <td>User email:</td>
-                <td>@Html.EditorFor(m => m.GastMejl)</td>
+                <td>@Html.EditorFor(m => m.E_Mail)</td>
             </tr>
             <tr>
                 <td>Password:</td>
-                <td>@Html.PasswordFor(m => m.Losenord)</td>
+                <td>@Html.PasswordFor(m => m.Password)</td>
             </tr>
             <tr>
                 <td><input type="submit" value="Sign in" /></td>
