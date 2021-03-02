@@ -16,7 +16,7 @@ using Newtonsoft.Json.Converters;
 namespace AdminSeaSharp.Controllers
 {
     //La till [Authorize] här så att inloggning för admin nu fungerar
-    [Authorize]
+    //[Authorize]
     public class AdminController : Controller
     {
         // GET: AdminController        

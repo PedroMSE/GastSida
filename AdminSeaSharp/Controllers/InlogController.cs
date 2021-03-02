@@ -35,6 +35,7 @@ namespace AdminSeaSharp.Controllers
                     validatedInlog = JsonConvert.DeserializeObject<Inlog>(apiResponse);
                 }
             
+
             }
             if (validatedInlog != null)
             {
