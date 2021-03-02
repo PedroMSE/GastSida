@@ -24,22 +24,33 @@ namespace AdminSeaSharp.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(Inlog adminInfo)
         {
-            Inlog validatedInlog = null;//= new User();
+            LoginResponse validatedInlog = null;//= new User();
             using (var httpClient = new HttpClient())
             {
-                StringContent content = new StringContent(JsonConvert.SerializeObject(adminInfo), Encoding.UTF8, "application(json");
+                StringContent content = new StringContent(JsonConvert.SerializeObject(adminInfo), Encoding.UTF8, "application/json");
                  
                 using (var response= await httpClient.PostAsync("https://informatik10.ei.hv.se/UserService/Login", content))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
-                    validatedInlog = JsonConvert.DeserializeObject<Inlog>(apiResponse);
+                    validatedInlog = JsonConvert.DeserializeObject<LoginResponse>(apiResponse);
                 }
             
+
             }
-            if (validatedInlog != null)
+            if (validatedInlog.Status == true)
             {
-                await SetUserAuthenticated(validatedInlog);
-                return Redirect("~/Admin/Index" );
+                if (validatedInlog.Role.Contains("GuestAdmin"))
+                {
+                    await SetUserAuthenticated(adminInfo.UserName);
+                    return Redirect("~/Admin/Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Inloggningen är inte godkänd");
+                    return View();
+
+                }
+                
             }
             else
             {
@@ -50,11 +61,11 @@ namespace AdminSeaSharp.Controllers
 
             
         }
-        private async Task SetUserAuthenticated(Inlog validatedInlog)
+        private async Task SetUserAuthenticated( string userName)
         {
 
             var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-            identity.AddClaim(new Claim(ClaimTypes.Name, validatedInlog.UserName));
+            identity.AddClaim(new Claim(ClaimTypes.Name, userName));
 
             await HttpContext.SignInAsync(
                 CookieAuthenticationDefaults.AuthenticationScheme,
