@@ -28,7 +28,7 @@ namespace SeaSharpHotel_Gäst.Controllers
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(guestLogin), Encoding.UTF8, "application/json");
 
-                using (var response = await httpClient.PostAsync("http://localhost:64133/api/Login/CheckLogin", content))
+                using (var response = await httpClient.PostAsync("http://193.10.202.78/GuestAPI/api/Guest", content))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     validatedLogin = JsonConvert.DeserializeObject<Guest>(apiResponse);
