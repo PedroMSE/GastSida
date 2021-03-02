@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pedro\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {}
+    "C:\\Users\\alto\\Desktop\\AdminSidan\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pedro\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {
+    "C:\\Users\\alto\\Desktop\\AdminSidan\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pedro\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
+        "projectUniqueName": "C:\\Users\\alto\\Desktop\\AdminSidan\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
         "projectName": "SeaSharpHotel_Gäst",
-        "projectPath": "C:\\Users\\pedro\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
-        "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pedro\\source\\repos\\GastSida\\SeaSharpHotel_Gäst\\obj\\",
+        "projectPath": "C:\\Users\\alto\\Desktop\\AdminSidan\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
+        "packagesPath": "C:\\Users\\alto\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alto\\Desktop\\AdminSidan\\SeaSharpHotel_Gäst\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\alto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -87,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

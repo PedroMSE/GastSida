@@ -20,16 +20,20 @@ namespace AdminSeaSharp.Controllers
     public class AdminController : Controller
     {
         // GET: AdminController        
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
-            List<Guest> guests = new List<Guest>();
-            HttpClient client = new HttpClient();
+            Guest currentGuest = null;
+           using(var httpClient  = new HttpClient())
+           {
+                using (var response = await httpClient.GetAsync("http://193.10.202.78/GuestAPI/api/Guest/" + id))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    currentGuest = JsonConvert.DeserializeObject<Guest>(apiResponse);
+                }
+           }
 
-            var response = await client.GetAsync("http://193.10.202.78/GuestAPI/api/Guest");
-            string jsonresponse = await response.Content.ReadAsStringAsync();
-            guests = JsonConvert.DeserializeObject<List<Guest>>(jsonresponse);
-
-            return View(guests);
+            
+           return View(currentGuest);
         }
 
         #pragma warning disable CS0114 // Member hides inherited member; missing override keyword
