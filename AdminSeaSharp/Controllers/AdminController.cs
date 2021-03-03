@@ -20,20 +20,19 @@ namespace AdminSeaSharp.Controllers
     public class AdminController : Controller
     {
         // GET: AdminController        
-        public async Task<IActionResult> Index(int id)
+        public async Task<IActionResult> Index()
         {
-            Guest currentGuest = null;
-           using(var httpClient  = new HttpClient())
-           {
-                using (var response = await httpClient.GetAsync("http://193.10.202.78/GuestAPI/api/Guest/" + id))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    currentGuest = JsonConvert.DeserializeObject<Guest>(apiResponse);
-                }
-           }
 
-            
-           return View(currentGuest);
+            List<Guest> guests = new List<Guest>();
+            HttpClient client = new HttpClient();
+
+            var response = await client.GetAsync("http://193.10.202.78/GuestAPI/api/Guest");
+            string jsonresponse = await response.Content.ReadAsStringAsync();
+            guests = JsonConvert.DeserializeObject<List<Guest>>(jsonresponse);
+
+            return View(guests);
+
+
         }
 
         #pragma warning disable CS0114 // Member hides inherited member; missing override keyword
@@ -65,7 +64,7 @@ namespace AdminSeaSharp.Controllers
             Guest receivedGuest = new Guest();
             using (var httpClient = new HttpClient())
             {
-                StringContent content = new StringContent(JsonConvert.SerializeObject(receivedGuest), Encoding.UTF8, "application/json");
+                StringContent content = new StringContent(JsonConvert.SerializeObject(guest), Encoding.UTF8, "application/json");
                 
                 using (var response = await httpClient.PostAsync("http://193.10.202.78/GuestAPI/api/Guest", content))
                 {

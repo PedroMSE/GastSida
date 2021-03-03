@@ -4,83 +4,111 @@
     ViewData["Title"] = "Edit";
 }
 <link href="~/css/StyleSheet.css" rel="stylesheet" />
-<h1>Edit a Guest</h1>
+<h1>Edit a Guest <a asp-action="Index" class="btn btn-sm btn-secondary"></a>Back</h1>
+<form method="post">
+   <!-- <div class="form-group">
+        <label asp-for="Id"></label>
+        <input class="form-control" asp-for="Id" />
 
-<h4>Guest</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control" />
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Firstname" class="control-label"></label>
-                <input asp-for="Firstname" class="form-control" />
-                <span asp-validation-for="Firstname" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Lastname" class="control-label"></label>
-                <input asp-for="Lastname" class="form-control" />
-                <span asp-validation-for="Lastname" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Street_Adress" class="control-label"></label>
-                <input asp-for="Street_Adress" class="form-control" />
-                <span asp-validation-for="Street_Adress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Street_Adress" class="control-label"></label>
-                <input asp-for="PostalCode" class="form-control" />
-                <span asp-validation-for="PostalCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PostalCode" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="Phonenumber" class="form-control" />
-                <span asp-validation-for="Phonenumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Phonenumber" class="control-label"></label>
-                <input asp-for="Type" class="form-control" />
-                <span asp-validation-for="Type" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Type" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="E_Mail" class="form-control" />
-                <span asp-validation-for="E_Mail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="E_Mail" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    </div>-->
+    <div class="form-group">
+        <label asp-for="Firstname"></label>
+        <input class="form-control" asp-for="Firstname" />
+
     </div>
-</div>
+    <div class="form-group">
+        <label asp-for="Lastname"></label>
+        <input class="form-control" asp-for="Lastname" />
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Street_Adress"></label>
+        <input class="form-control" asp-for="Street_Adress" />
+
+    </div>
+    <div class="form-group">
+        <label asp-for="PostalCode"></label>
+        <input class="form-control" asp-for="PostalCode" />
+
+    </div>
+    <div class="form-group">
+        <label asp-for="City"></label>
+        <input class="form-control" asp-for="City" />
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Phonenumber"></label>
+        <input class="form-control" asp-for="Phonenumber" />
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Type"></label>
+        <input class="form-control" asp-for="Type" />
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <input class="form-control" asp-for="Status" />
+
+    </div>
+    <div class="form-group">
+        <label asp-for="E_Mail"></label>
+        <input class="form-control" asp-for="E_Mail" />
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input class="form-control" asp-for="Password" readonly />
+
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-sm btn-primary">Edit</button>
+    </div>
+
+</form>
+
+@if (ViewBag.Result =="Succes")
+{
+    <h2>Guest</h2>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <!--<th>Id</th>-->
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>StreetAddress</th>
+                <th>PostalCode</th>
+                <th>City</th>
+                <th>PhoneNumber</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>E_mail</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+               
+                <td>@Model.Firstname</td>
+                <td>@Model.Lastname</td>
+                <td>@Model.Street_Adress</td>
+                <td>@Model.PostalCode</td>
+                <td>@Model.City</td>
+                <td>@Model.Phonenumber</td>
+                <td>@Model.Type</td>
+                <td>@Model.Status</td>
+                <td>@Model.E_Mail</td>
+                <td>@Model.Password</td>
+            </tr>
+        </tbody>
+    </table>
+}
 
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
 
 
 

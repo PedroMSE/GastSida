@@ -19,7 +19,7 @@ namespace AdminSeaSharp.Models
 
         public string City { get; set; }
 
-        public int Phonenumber { get; set; }
+        public string Phonenumber { get; set; }
 
         public string Type { get; set; }
 
