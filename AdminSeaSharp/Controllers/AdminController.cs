@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using AdminSeaSharp.Models;
@@ -72,17 +72,17 @@ namespace AdminSeaSharp.Controllers
                     receivedGuest = JsonConvert.DeserializeObject<Guest>(apiResponse);
                 }
             }
-            return View(receivedGuest);
+            return RedirectToAction("Index", "Admin");
             //lägger in det sen
-           /* try
-            {
-                
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }*/
+            /* try
+             {
+
+                 return RedirectToAction(nameof(Index));
+             }
+             catch
+             {
+                 return View();
+             }*/
         }
 
         // GET: AdminController/Edit/5
@@ -111,40 +111,15 @@ namespace AdminSeaSharp.Controllers
             Guest receivedGuest = new Guest();
             using (var httpClient = new HttpClient())
             {
-                var content = new MultipartFormDataContent();
-                content.Add(new StringContent(guest.Id.ToString()), "Id");
-                content.Add(new StringContent(guest.Firstname.ToString()), "Firstname");
-                content.Add(new StringContent(guest.Lastname.ToString()), "Lastname");
-                content.Add(new StringContent(guest.Street_Adress.ToString()), "Street_Adress");
-                content.Add(new StringContent(guest.PostalCode.ToString()), "PostalCode");
-                content.Add(new StringContent(guest.City.ToString()), "City");
-                content.Add(new StringContent(guest.Phonenumber.ToString()), "Phonenumber");
-                content.Add(new StringContent(guest.Type.ToString()), "Type");
-                content.Add(new StringContent(guest.Status.ToString()), "Status");
-                content.Add(new StringContent(guest.E_Mail.ToString()), "E_Mail");
-                content.Add(new StringContent(guest.Status.ToString()), "Status");
-                content.Add(new StringContent(guest.Password.ToString()), "Password");
-                using (var response = await httpClient.PutAsync("http://193.10.202.78/GuestAPI/api/Guest", content))
+                StringContent content = new StringContent(JsonConvert.SerializeObject(guest), Encoding.UTF8, "application/json");
+
+                using (var response = await httpClient.PutAsync("http://193.10.202.78/GuestAPI/api/Guest/" + guest.Id, content))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
-                    ViewBag.Result = "Succes";
                     receivedGuest = JsonConvert.DeserializeObject<Guest>(apiResponse);
                 }
-
-
-
-
-
             }
-            return View(receivedGuest);
-           /* try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }*/
+            return RedirectToAction("Index", "Admin");
         }
 
         // GET: AdminController/Delete/5
