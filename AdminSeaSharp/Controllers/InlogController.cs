@@ -15,63 +15,73 @@ namespace AdminSeaSharp.Controllers
 {
     public class InlogController : Controller
     {
+        //get: InlogController
         public IActionResult Index()
         {
             return View();
         }
-
+     
         [HttpPost]
-        public async Task<IActionResult> Index(Inlog adminInfo, string returnUrl = null)
+        public async Task<IActionResult> Index(Inlog adminInfo)
         {
-            //vi tror att här ska länkas till inlogservicen..
-            bool AdminGiltig = KontrolleraAdmin(adminInfo);
-            if (AdminGiltig == true)
-            {
-                var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-                identity.AddClaim(new Claim(ClaimTypes.Name, adminInfo.UserName));
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
-
-                if (returnUrl != null)
-
-                {  
-                    return Redirect(returnUrl);
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Admin");
-                }
-
-            }
-            ViewBag.FelMeddelande = "Login failed. Please try again";
-            return View();
-        }
-        private bool KontrolleraAdmin(Inlog adminInfo)
-        {    //anrop till webbservicen grupp3. skicka med adminInfo
-
-
+            LoginResponse validatedInlog = null;//= new User();
             using (var httpClient = new HttpClient())
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(adminInfo), Encoding.UTF8, "application/json");
-                LoginResponse recievedResponse; 
-                using (var response = httpClient.PostAsync("https://informatik10.ei.hv.se/UserService/Login", content))
+                 
+                using (var response= await httpClient.PostAsync("https://informatik10.ei.hv.se/UserService/Login", content))
                 {
-                    string apiResponse = response.Result.Content.ReadAsStringAsync().ToString();
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    validatedInlog = JsonConvert.DeserializeObject<LoginResponse>(apiResponse);
+                }
+            
 
-                    recievedResponse = JsonConvert.DeserializeObject<LoginResponse>(apiResponse);
-
-
-                    if (recievedResponse.Status == true)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-
+            }
+            if (validatedInlog.Status == true)
+            {
+                if (validatedInlog.Role.Contains("GuestAdmin"))
+                {
+                    await SetUserAuthenticated(adminInfo.UserName);
+                    return Redirect("~/Admin/Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Inloggningen är inte godkänd");
+                    return View();
 
                 }
+                
             }
+            else
+            {
+                ModelState.AddModelError("", "Inloggningen är inte godkänd");
+                return View();
+            }
+
+
+            
+        }
+        private async Task SetUserAuthenticated( string userName)
+        {
+
+            var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+            identity.AddClaim(new Claim(ClaimTypes.Name, userName));
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(identity));
+            
+
+
+
+                    
+                    
+                    
+                    
+
+
+                
+            
         }
 
     }

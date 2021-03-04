@@ -6,17 +6,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SeaSharpHotel_Gäst.Models
 {
-    public class InlogModel
+    public class GuestLogin
     {
         [Required(ErrorMessage = "Enter your email")]
         [Display(Name ="Email")]
 
-        public string GastMejl { get; set; }
+        public string E_Mail { get; set; }
 
         [Required(ErrorMessage = "Enter your Password")]
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
 
-        public string Losenord { get; set; }
+        public string Password { get; set; }
     }
 }

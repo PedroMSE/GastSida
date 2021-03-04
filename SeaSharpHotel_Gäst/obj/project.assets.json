@@ -7449,19 +7449,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bijo0009\\.nuget\\packages\\": {}
+    "C:\\Users\\alto\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bijo0009\\Desktop\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
+      "projectUniqueName": "C:\\Users\\alto\\Desktop\\AdminSidan\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
       "projectName": "SeaSharpHotel_Gäst",
-      "projectPath": "C:\\Users\\Bijo0009\\Desktop\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
-      "packagesPath": "C:\\Users\\Bijo0009\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bijo0009\\Desktop\\GastSida\\SeaSharpHotel_Gäst\\obj\\",
+      "projectPath": "C:\\Users\\alto\\Desktop\\AdminSidan\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
+      "packagesPath": "C:\\Users\\alto\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alto\\Desktop\\AdminSidan\\SeaSharpHotel_Gäst\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Bijo0009\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alto\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

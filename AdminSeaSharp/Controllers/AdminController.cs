@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using AdminSeaSharp.Models;
@@ -10,16 +10,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using System.Text;
+using Newtonsoft.Json.Converters;
 
 namespace AdminSeaSharp.Controllers
 {
     //La till [Authorize] här så att inloggning för admin nu fungerar
-    [Authorize]
+    //[Authorize]
     public class AdminController : Controller
     {
         // GET: AdminController        
         public async Task<IActionResult> Index()
         {
+
             List<Guest> guests = new List<Guest>();
             HttpClient client = new HttpClient();
 
@@ -28,6 +31,8 @@ namespace AdminSeaSharp.Controllers
             guests = JsonConvert.DeserializeObject<List<Guest>>(jsonresponse);
 
             return View(guests);
+
+
         }
 
         #pragma warning disable CS0114 // Member hides inherited member; missing override keyword
@@ -54,41 +59,71 @@ namespace AdminSeaSharp.Controllers
         // POST: AdminController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Guest guest)
+        public async Task<ActionResult> Create(Guest guest)
         {
-            try
+            Guest receivedGuest = new Guest();
+            using (var httpClient = new HttpClient())
             {
-                return RedirectToAction(nameof(Index));
+                StringContent content = new StringContent(JsonConvert.SerializeObject(guest), Encoding.UTF8, "application/json");
+                
+                using (var response = await httpClient.PostAsync("http://193.10.202.78/GuestAPI/api/Guest", content))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    receivedGuest = JsonConvert.DeserializeObject<Guest>(apiResponse);
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index", "Admin");
+            //lägger in det sen
+            /* try
+             {
+
+                 return RedirectToAction(nameof(Index));
+             }
+             catch
+             {
+                 return View();
+             }*/
         }
 
         // GET: AdminController/Edit/5
-        public ActionResult Edit(int id)
-        { 
-            return View();
+        public async Task<ActionResult> Edit(int id)
+        {
+            Guest guest = new Guest();
+            using (var httpClient = new HttpClient())
+            {
+
+                using (var response = await httpClient.GetAsync("http://193.10.202.78/GuestAPI/api/Guest/" + id)) 
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    guest = JsonConvert.DeserializeObject<Guest>(apiResponse);
+                }
+                    
+            }
+
+            return View(guest);
         }
 
         // POST: AdminController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(Guest guest)
         {
-            try
+            Guest receivedGuest = new Guest();
+            using (var httpClient = new HttpClient())
             {
-                return RedirectToAction(nameof(Index));
+                StringContent content = new StringContent(JsonConvert.SerializeObject(guest), Encoding.UTF8, "application/json");
+
+                using (var response = await httpClient.PutAsync("http://193.10.202.78/GuestAPI/api/Guest/" + guest.Id, content))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    receivedGuest = JsonConvert.DeserializeObject<Guest>(apiResponse);
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index", "Admin");
         }
 
         // GET: AdminController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete()
         {
             return View();
         }
@@ -96,16 +131,25 @@ namespace AdminSeaSharp.Controllers
         // POST: AdminController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id)
         {
-            try
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.DeleteAsync("http://193.10.202.78/GuestAPI/api/Guest/" + id))
+                {
+                    string apiresponse = await response.Content.ReadAsStringAsync();
+                }
+            }
+
+            /*try
             {
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
                 return View();
-            }
+            }*/
+            return RedirectToAction("Index");
         }
     }
 }
