@@ -113,10 +113,9 @@ namespace AdminSeaSharp.Controllers
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(guest), Encoding.UTF8, "application/json");
 
-                using (var response = await httpClient.PutAsync("http://193.10.202.78/GuestAPI/api/Guest/" + guest.Id, content))
+                using (var response = await httpClient.PutAsync("http://193.10.202.78/GuestAPI/api/Guest/", content))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
-                    receivedGuest = JsonConvert.DeserializeObject<Guest>(apiResponse);
                 }
             }
             return RedirectToAction("Index", "Admin");

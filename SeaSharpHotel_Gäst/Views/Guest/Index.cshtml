@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SeaSharpHotel_Gäst.Models.Guest>
+﻿@model SeaSharpHotel_Gäst.Models.Guest
 
 @{
     ViewData["Title"] = "Profile";
@@ -7,10 +7,8 @@
 <p>@Html.ActionLink("Edit my information", "Edit", "Guest")</p>
 
 <link href="~/css/StyleSheet.css" rel="stylesheet" />
-@foreach (var item in Model)
-{
-    <h1>@Html.DisplayFor(modelItem => item.Firstname, item.Lastname)</h1>
-}
+
+<h1>@Html.DisplayFor(m => m.Firstname) @Html.DisplayFor(m => m.Lastname)</h1>
 <p>
     <a asp-action="Edit">Edit Profile</a>
 </p>
@@ -42,36 +40,33 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Firstname)
+                    @Html.DisplayFor(m => m.Firstname)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Lastname)
+                    @Html.DisplayFor(m => m.Lastname)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Street_Adress)
+                    @Html.DisplayFor(m => m.Street_Adress)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PostalCode)
+                    @Html.DisplayFor(m => m.PostalCode)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.City)
+                    @Html.DisplayFor(m => m.City)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Phonenumber)
+                    @Html.DisplayFor(m => m.Phonenumber)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.E_Mail)
+                    @Html.DisplayFor(m => m.E_Mail)
                 </td>
-                <!--<td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+               <td>
+                    @Html.ActionLink("Edit", "Edit", "Guest", new { id = 2 }) |
                     @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                     @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>-->
+                </td>
             </tr>
-        }
     </tbody>
 </table>

@@ -38,7 +38,7 @@ namespace SeaSharpHotel_Gäst.Controllers
             if (validatedLogin != null)
             {
                 await SetGuestAuthenticated(validatedLogin);
-
+           
                 //Den ska inte vara med. Bara för att visa att det fungerar
                 return Redirect("~/Guest/Index/" + validatedLogin.Id);
             }
