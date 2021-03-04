@@ -28,7 +28,7 @@ namespace SeaSharpHotel_Gäst.Controllers
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(guestLogin), Encoding.UTF8, "application/json");
 
-                using (var response = await httpClient.PostAsync("http://localhost:64133/api/Login/CheckLogin", content))
+                using (var response = await httpClient.PostAsync("http://193.10.202.78/GuestAPI/api/Login", content))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     validatedLogin = JsonConvert.DeserializeObject<Guest>(apiResponse);
@@ -40,7 +40,7 @@ namespace SeaSharpHotel_Gäst.Controllers
                 await SetGuestAuthenticated(validatedLogin);
 
                 //Den ska inte vara med. Bara för att visa att det fungerar
-                return Redirect("~/Profile/Index/" + validatedLogin.Id);
+                return Redirect("~/Guest/Index/" + validatedLogin.Id);
             }
             else
             {

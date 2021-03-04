@@ -22,7 +22,7 @@
         <table>
             <tr>
                 <td>User email:</td>
-                <td>@Html.EditorFor(m => m.E_Mail)</td>
+                <td>@Html.TextBoxFor(m => m.E_Mail)</td>
             </tr>
             <tr>
                 <td>Password:</td>
@@ -36,7 +36,7 @@
         <p>@ViewBag.FelMeddelande</p>
 
         <br />
-        @Html.ActionLink("To my pages >", "Index", "Gast")
+        @Html.ActionLink("To my pages >", "Index", "Guest")
         <br />
         @Html.ActionLink("< Back to homepage", "Index", "Home")
 

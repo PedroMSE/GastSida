@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace SeaSharpHotel_Gäst.Controllers
 {
     [Authorize]
-    public class ProfileController : Controller
+    public class GuestController : Controller
     {
         // GET: ProfileController        
         public async Task<IActionResult> Index(int id)
