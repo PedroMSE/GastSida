@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ägaren\\source\\repos\\PedroMSE\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {}
+    "C:\\Users\\ägaren\\Source\\Repos\\PedroMSE\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ägaren\\source\\repos\\PedroMSE\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {
+    "C:\\Users\\ägaren\\Source\\Repos\\PedroMSE\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ägaren\\source\\repos\\PedroMSE\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
+        "projectUniqueName": "C:\\Users\\ägaren\\Source\\Repos\\PedroMSE\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
         "projectName": "SeaSharpHotel_Gäst",
-        "projectPath": "C:\\Users\\ägaren\\source\\repos\\PedroMSE\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
+        "projectPath": "C:\\Users\\ägaren\\Source\\Repos\\PedroMSE\\GastSida\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
         "packagesPath": "C:\\Users\\ägaren\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ägaren\\source\\repos\\PedroMSE\\GastSida\\SeaSharpHotel_Gäst\\obj\\",
+        "outputPath": "C:\\Users\\ägaren\\Source\\Repos\\PedroMSE\\GastSida\\SeaSharpHotel_Gäst\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ägaren\\AppData\\Roaming\\NuGet\\NuGet.Config",

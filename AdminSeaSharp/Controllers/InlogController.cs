@@ -34,8 +34,6 @@ namespace AdminSeaSharp.Controllers
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     validatedInlog = JsonConvert.DeserializeObject<LoginResponse>(apiResponse);
                 }
-            
-
             }
             if (validatedInlog.Status == true)
             {

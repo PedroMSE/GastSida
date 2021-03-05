@@ -7,8 +7,7 @@ using System.ComponentModel.DataAnnotations;
 namespace SeaSharpHotel_Gäst.Models
 {
     public class GuestLogin
-    {
-        
+    { 
         public string E_Mail { get; set; }
 
         public string Password { get; set; }
