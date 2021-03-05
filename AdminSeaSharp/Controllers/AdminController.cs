@@ -34,8 +34,24 @@ namespace AdminSeaSharp.Controllers
 
 
         }
+        //Get: Bookings
+        public async Task<IActionResult> Bookings()
+        {
 
-        #pragma warning disable CS0114 // Member hides inherited member; missing override keyword
+            List<Bookings> guestBookings = new List<Bookings>();
+            HttpClient client = new HttpClient();
+
+            var response = await client.GetAsync("http://Informatik11.ei.hv.se/connectingapi/BookingModels");
+            string jsonresponse = await response.Content.ReadAsStringAsync();
+            guestBookings = JsonConvert.DeserializeObject<List<Bookings>>(jsonresponse);
+
+            return View(guestBookings);
+
+
+        }
+
+
+#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
 
         public async Task<ActionResult> SignOut()
         #pragma warning restore CS0114 // Member hides inherited member; missing override keyword
@@ -113,7 +129,7 @@ namespace AdminSeaSharp.Controllers
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(guest), Encoding.UTF8, "application/json");
 
-                using (var response = await httpClient.PutAsync("http://193.10.202.78/GuestAPI/api/Guest/" + guest.Id, content))
+                using (var response = await httpClient.PutAsync("http://193.10.202.78/GuestAPI/api/Guest/", content))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     receivedGuest = JsonConvert.DeserializeObject<Guest>(apiResponse);
