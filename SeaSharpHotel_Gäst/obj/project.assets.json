@@ -7449,25 +7449,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pedro\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\ägaren\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pedro\\Desktop\\Main\\V3\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
+      "projectUniqueName": "C:\\Users\\ägaren\\source\\repos\\main1\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
       "projectName": "SeaSharpHotel_Gäst",
-      "projectPath": "C:\\Users\\pedro\\Desktop\\Main\\V3\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
-      "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pedro\\Desktop\\Main\\V3\\SeaSharpHotel_Gäst\\obj\\",
+      "projectPath": "C:\\Users\\ägaren\\source\\repos\\main1\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
+      "packagesPath": "C:\\Users\\ägaren\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ägaren\\source\\repos\\main1\\SeaSharpHotel_Gäst\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\ägaren\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"

@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using System.Text;
+using Newtonsoft.Json.Converters;
 
 namespace SeaSharpHotel_Gäst.Controllers
 {
@@ -40,29 +42,38 @@ namespace SeaSharpHotel_Gäst.Controllers
             return RedirectToAction("Index", "Login");
         }
 
-        
-
-        // GET: ProfileController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            Guest guest = new Guest();
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync("http://193.10.202.78/GuestAPI/api/Guest/" + id))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    guest = JsonConvert.DeserializeObject<Guest>(apiResponse);
+                }
+            }
+            return View(guest);
         }
 
-        // POST: ProfileController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(Guest guest)
         {
-            try
+            using (var httpClient = new HttpClient())
             {
-                return RedirectToAction(nameof(Index));
+                StringContent content = new StringContent(JsonConvert.SerializeObject(guest), Encoding.UTF8, "application/json");
+
+                using (var response = await httpClient.PutAsync("http://193.10.202.78/GuestAPI/api/Guest/", content))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index", "Guest", new { id = guest.Id });
         }
 
-       
+
+
+
     }
 }
