@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using System.Text;
 using Newtonsoft.Json.Converters;
+using System.Web;
 
 namespace SeaSharpHotel_Gäst.Controllers
 {
@@ -71,9 +72,5 @@ namespace SeaSharpHotel_Gäst.Controllers
             }
             return RedirectToAction("Index", "Guest", new { id = guest.Id });
         }
-
-
-
-
     }
 }

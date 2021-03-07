@@ -3,6 +3,9 @@
     "mssql1": {
       "type": "mssql.local",
       "connectionId": "Context"
+    },
+    "appInsights1": {
+      "type": "appInsights.sdk"
     }
   }
 }

@@ -28,6 +28,7 @@ namespace SeaSharpHotel_Gäst
                     .AddCookie(options => { options.LoginPath = "/Inlog/Index/"; });
 
             services.AddMvc();
+            services.AddApplicationInsightsTelemetry();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

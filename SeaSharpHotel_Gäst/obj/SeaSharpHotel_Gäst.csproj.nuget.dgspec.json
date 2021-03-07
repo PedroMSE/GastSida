@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ägaren\\source\\repos\\main1\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {}
+    "C:\\Users\\ägaren\\source\\repos\\Nyaste\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ägaren\\source\\repos\\main1\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {
+    "C:\\Users\\ägaren\\source\\repos\\Nyaste\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ägaren\\source\\repos\\main1\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
+        "projectUniqueName": "C:\\Users\\ägaren\\source\\repos\\Nyaste\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
         "projectName": "SeaSharpHotel_Gäst",
-        "projectPath": "C:\\Users\\ägaren\\source\\repos\\main1\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
+        "projectPath": "C:\\Users\\ägaren\\source\\repos\\Nyaste\\SeaSharpHotel_Gäst\\SeaSharpHotel_Gäst.csproj",
         "packagesPath": "C:\\Users\\ägaren\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ägaren\\source\\repos\\main1\\SeaSharpHotel_Gäst\\obj\\",
+        "outputPath": "C:\\Users\\ägaren\\source\\repos\\Nyaste\\SeaSharpHotel_Gäst\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ägaren\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,15 +40,23 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.ApplicationInsights.AspNetCore": {
+              "target": "Package",
+              "version": "[2.17.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Cookies": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.3, )"
             },
             "Microsoft.Extensions.ApiDescription.Client": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[5.0.3, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -63,6 +71,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.2, )"
+            },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
             }
           },
           "imports": [

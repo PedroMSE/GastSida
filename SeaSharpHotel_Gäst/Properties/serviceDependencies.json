@@ -3,6 +3,9 @@
     "mssql1": {
       "type": "mssql",
       "connectionId": "Context"
+    },
+    "appInsights1": {
+      "type": "appInsights"
     }
   }
 }

@@ -20,8 +20,8 @@ namespace AdminSeaSharp.Controllers
         {
             return View();
         }
-     
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(Inlog adminInfo)
         {
             LoginResponse validatedInlog = null;//= new User();
@@ -34,8 +34,6 @@ namespace AdminSeaSharp.Controllers
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     validatedInlog = JsonConvert.DeserializeObject<LoginResponse>(apiResponse);
                 }
-            
-
             }
             if (validatedInlog.Status == true)
             {
@@ -48,40 +46,22 @@ namespace AdminSeaSharp.Controllers
                 {
                     ModelState.AddModelError("", "Inloggningen är inte godkänd");
                     return View();
-
-                }
-                
+                }          
             }
             else
             {
                 ModelState.AddModelError("", "Inloggningen är inte godkänd");
                 return View();
-            }
-
-
-            
+            }         
         }
         private async Task SetUserAuthenticated( string userName)
         {
-
             var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
             identity.AddClaim(new Claim(ClaimTypes.Name, userName));
 
             await HttpContext.SignInAsync(
                 CookieAuthenticationDefaults.AuthenticationScheme,
-                new ClaimsPrincipal(identity));
-            
-
-
-
-                    
-                    
-                    
-                    
-
-
-                
-            
+                new ClaimsPrincipal(identity));  
         }
 
     }

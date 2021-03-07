@@ -10,6 +10,7 @@ using System.Security.Claims;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Text;
+using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace SeaSharpHotel_Gäst.Controllers
 {
@@ -34,11 +35,9 @@ namespace SeaSharpHotel_Gäst.Controllers
                     validatedLogin = JsonConvert.DeserializeObject<Guest>(apiResponse);
                 }
             }
-
             if (validatedLogin != null)
             {
                 await SetGuestAuthenticated(validatedLogin);
-
                 //Den ska inte vara med. Bara för att visa att det fungerar
                 return Redirect("~/Guest/Index/" + validatedLogin.Id);
             }
@@ -59,44 +58,5 @@ namespace SeaSharpHotel_Gäst.Controllers
                 CookieAuthenticationDefaults.AuthenticationScheme,
                 new ClaimsPrincipal(identity));
         }
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Index(GuestLogin gastInfo, string returnUrl = null)
-        //{
-
-        //    bool gastGiltig = KontrolleraGast(gastInfo);
-        //    if (gastGiltig==true)
-        //    {
-        //        var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-        //        identity.AddClaim(new Claim(ClaimTypes.Name, gastInfo.E_Mail));
-        //        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
-
-        //        if (returnUrl != null)
-        //        {
-        //            return Redirect(returnUrl);
-        //        }
-        //        else
-        //        {
-        //            return RedirectToAction("Index", "Gast");
-        //        }
-                    
-        //    }
-        //    ViewBag.FelMeddelande = "Login failed. Please try again";
-        //    return View();
-        //}
-        //private bool KontrolleraGast(GuestLogin gastInfo)
-        //{
-        //    if (gastInfo.E_Mail == "Pedro" && gastInfo.Password=="Pass")
-        //    {
-        //        //gissar att vi behöver länk till inlogservice
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
-
-        
     }
 }
