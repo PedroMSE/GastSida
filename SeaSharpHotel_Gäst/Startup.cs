@@ -25,7 +25,7 @@ namespace SeaSharpHotel_Gäst
         {
             services.AddControllersWithViews();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                    .AddCookie(options => { options.LoginPath = "/Inlog/Index/"; });
+                    .AddCookie(options => { options.LoginPath = "/Login/Index/"; });
 
             services.AddMvc();
             services.AddApplicationInsightsTelemetry();

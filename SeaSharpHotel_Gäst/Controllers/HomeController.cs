@@ -14,6 +14,21 @@ namespace SeaSharpHotel_Gäst.Controllers
         {
             return View();
         }
+        public IActionResult Restaurants()
+        {
+            return View();
+        }
+        public IActionResult Activities()
+        {
+            return View();
+        }
+        public IActionResult Rooms()
+        {
+            return View();
+        }
+
+
+
 
 
         public IActionResult Privacy()

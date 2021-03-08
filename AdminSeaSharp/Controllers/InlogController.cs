@@ -10,6 +10,7 @@ using System.Security.Claims;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Text;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace AdminSeaSharp.Controllers
 {
@@ -35,24 +36,35 @@ namespace AdminSeaSharp.Controllers
                     validatedInlog = JsonConvert.DeserializeObject<LoginResponse>(apiResponse);
                 }
             }
-            if (validatedInlog.Status == true)
+
+            if (validatedInlog !=null)
             {
-                if (validatedInlog.Role.Contains("GuestAdmin"))
+                if (validatedInlog.Status == true)
                 {
-                    await SetUserAuthenticated(adminInfo.UserName);
-                    return Redirect("~/Admin/Index");
+                    if (validatedInlog.Role.Contains("GuestAdmin"))
+                    {
+                        await SetUserAuthenticated(adminInfo.UserName);
+                        return Redirect("~/Admin/Index");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Inloggningen är inte godkänd");
+                        return View();
+                    }
                 }
                 else
                 {
                     ModelState.AddModelError("", "Inloggningen är inte godkänd");
                     return View();
-                }          
+                }
             }
             else
             {
                 ModelState.AddModelError("", "Inloggningen är inte godkänd");
                 return View();
-            }         
+
+            }
+           
         }
         private async Task SetUserAuthenticated( string userName)
         {
