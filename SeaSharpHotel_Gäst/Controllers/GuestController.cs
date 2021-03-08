@@ -72,5 +72,27 @@ namespace SeaSharpHotel_Gäst.Controllers
             }
             return RedirectToAction("Index", "Guest", new { id = guest.Id });
         }
+        public async Task<IActionResult> Bookings(int id)
+        {
+            try
+            {
+                Bookings currentBooking = null;
+                HttpClient client = new HttpClient();
+
+                var response = await client.GetAsync("http://Informatik11.ei.hv.se/connectingapi/BookingModels/" + id);
+                string jsonresponse = await response.Content.ReadAsStringAsync();
+                currentBooking = JsonConvert.DeserializeObject<Bookings>(jsonresponse);
+
+                return View(currentBooking);
+
+            }
+            catch (Exception)
+            {
+
+               throw;
+            } 
+
+        }
+        
     }
 }

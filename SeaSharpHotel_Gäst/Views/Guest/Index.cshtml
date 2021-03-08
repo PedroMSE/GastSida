@@ -1,10 +1,8 @@
 ﻿@model SeaSharpHotel_Gäst.Models.Guest
 
 @{
-    ViewData["Title"] = "Profile";
+    ViewData["Title"] = "Guest";
 }
-
-<p>@Html.ActionLink("Edit my information", "Edit", "Guest")</p>
 
 <link href="~/css/StyleSheet.css" rel="stylesheet" />
 
@@ -63,7 +61,7 @@
                 @Html.DisplayFor(m => m.E_Mail)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", "Guest", new { id = Model.Id }) |
+                @Html.ActionLink("Bookings", "Bookings", new { id = Model.Id })
 
             </td>
         </tr>
