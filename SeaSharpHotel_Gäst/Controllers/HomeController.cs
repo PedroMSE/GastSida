@@ -36,12 +36,7 @@ namespace SeaSharpHotel_Gäst.Controllers
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     receivedGuest = JsonConvert.DeserializeObject<Guest>(apiResponse);
                     ViewData["Succes"] = "Your";
-                }
-                
-                
-                
-                    
-                
+                } 
             }
             return RedirectToAction("Index", "Home");
             //lägger in det sen

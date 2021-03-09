@@ -33,22 +33,6 @@ namespace AdminSeaSharp.Controllers
 
 
         }
-        //Get: Bookings
-        public async Task<IActionResult> Bookings()
-        {
-
-            List<Bookings> guestBookings = new List<Bookings>();
-            HttpClient client = new HttpClient();
-
-            var response = await client.GetAsync("http://Informatik11.ei.hv.se/connectingapi/BookingModels");
-            string jsonresponse = await response.Content.ReadAsStringAsync();
-            guestBookings = JsonConvert.DeserializeObject<List<Bookings>>(jsonresponse);
-
-            return View(guestBookings);
-
-
-        }
-
 
 #pragma warning disable CS0114 // Member hides inherited member; missing override keyword
 
@@ -76,6 +60,7 @@ namespace AdminSeaSharp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(Guest guest)
         {
+            
             Guest receivedGuest = new Guest();
             using (var httpClient = new HttpClient())
             {
@@ -114,7 +99,6 @@ namespace AdminSeaSharp.Controllers
                 }
                     
             }
-
             return View(guest);
         }
 
@@ -155,15 +139,6 @@ namespace AdminSeaSharp.Controllers
                     string apiresponse = await response.Content.ReadAsStringAsync();
                 }
             }
-
-            /*try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }*/
             return RedirectToAction("Index");
         }
     }
