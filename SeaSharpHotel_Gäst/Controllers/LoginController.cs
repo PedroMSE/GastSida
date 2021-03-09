@@ -11,6 +11,8 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Text;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
+using Microsoft.AspNetCore.Http;
+
 
 namespace SeaSharpHotel_Gäst.Controllers
 {
@@ -36,7 +38,8 @@ namespace SeaSharpHotel_Gäst.Controllers
                 }
             }
             if (validatedLogin != null)
-            {
+
+            { 
                 await SetGuestAuthenticated(validatedLogin);
                 //Den ska inte vara med. Bara för att visa att det fungerar
                 return Redirect("~/Guest/Index/" + validatedLogin.Id);

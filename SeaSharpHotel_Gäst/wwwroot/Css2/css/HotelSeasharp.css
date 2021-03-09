@@ -1,0 +1,169 @@
+﻿
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    /*    background-color: white;
+*/
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: black !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: cornflowerblue;
+    border-color: black;
+    visibility:visible;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: black;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    /*margin-bottom: 60px;*/
+    margin-bottom: 0;
+    background-color: white;
+}
+
+
+.container {
+    color: black !important;
+    font-size: larger !important;
+    font-style: normal !important;
+    font-family: Helvetica !important;
+    text-align: left !important;
+    opacity: 1.0 !important;
+}
+
+.row p, a, h1, h2, h3, h4 {
+    color: black !important;
+}
+
+.rubrik1 {
+    font-size: 50px;
+    font-family: serif;
+    float: left;
+}
+
+body .bild {
+    background-size: cover;
+    /*background-image: url(/images/hotelbilden.jpg);*/
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.kund {
+    display: block;
+    width: 50px;
+    height: 50px;
+    float: right;
+    top: 0;
+}
+
+
+* {
+    font-size: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+    color:black;
+}
+
+a {
+    color: #007bff !important;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+    a:hover {
+        color: #0056b3 !important;
+        text-decoration: underline !important;
+    }
+
+    h1, h2, h3, h4{
+        color:black !important;
+    }
+
+.footer {
+    /*position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;*/ /* Vertically center the text there */
+    /*opacity:60;*/
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    border-radius: 10px;
+    background-color: coral;
+    opacity: 0.6;
+    color: black;
+    text-align: center;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+.skapa {
+    border-radius: 4px;
+    background-color: darkgrey;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 17px;
+    padding: 3px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+.login{
+ margin-left: auto;
+ margin-right: auto;
+}

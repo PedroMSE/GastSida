@@ -6,6 +6,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Text;
+
 namespace SeaSharpHotel_Gäst.Controllers
 {
     public class HomeController : Controller
@@ -14,6 +18,44 @@ namespace SeaSharpHotel_Gäst.Controllers
         {
             return View();
         }
+        public IActionResult BliMedlem()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> BliMedlem(Guest guest)
+        {
+            Guest receivedGuest = new Guest();
+            using (var httpClient = new HttpClient())
+            {
+                StringContent content = new StringContent(JsonConvert.SerializeObject(guest), Encoding.UTF8, "application/json");
+
+                using (var response = await httpClient.PostAsync("http://193.10.202.78/GuestAPI/api/Guest", content))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    receivedGuest = JsonConvert.DeserializeObject<Guest>(apiResponse);
+                    ViewData["Succes"] = "Your";
+                }
+                
+                
+                
+                    
+                
+            }
+            return RedirectToAction("Index", "Home");
+            //lägger in det sen
+            /* try
+             {
+
+                 return RedirectToAction(nameof(Index));
+             }
+             catch
+             {
+                 return View();
+             }*/
+        }
+
         public IActionResult Restaurants()
         {
             return View();

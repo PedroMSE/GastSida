@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width" />
 
     <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <link href="http://193.10.202.77/css/HotelSeasharp.css" rel="stylesheet" />
 </head>
 <body>
     <div class="text-center">
@@ -17,10 +18,10 @@
     </div>
     <br />
 
-    <p>Have an account? Here you can @Html.ActionLink("sign in", "Index", "Login")</p>
+    <p>Have an account? Here you can @Html.ActionLink("sign in", "Index", "Guest")</p>
     <br />
 
-    <p>@Html.ActionLink("Guest management", "Index", "Admin")</p>
+    @ViewData["Succes"]
 
 </body>
 </html>

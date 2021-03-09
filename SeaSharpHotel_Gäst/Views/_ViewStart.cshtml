@@ -1,3 +1,8 @@
-﻿@{
+﻿@if (User.Identity.IsAuthenticated & User.IsInRole("Guest"))
+{
+    Layout = "_LayoutLogedIn";
+}
+else
+{
     Layout = "_Layout";
 }

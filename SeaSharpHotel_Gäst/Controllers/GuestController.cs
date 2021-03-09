@@ -40,7 +40,7 @@ namespace SeaSharpHotel_Gäst.Controllers
         #pragma warning restore CS0114 // Member hides inherited member; missing override keyword
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Index", "Home");
         }
 
         public async Task<ActionResult> Edit(int id)
