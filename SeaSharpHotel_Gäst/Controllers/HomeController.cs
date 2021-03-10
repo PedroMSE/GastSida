@@ -26,6 +26,8 @@ namespace SeaSharpHotel_Gäst.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> BliMedlem(Guest guest)
         {
+            guest.Status = "Standard";
+            guest.Type = "Standard";
             Guest receivedGuest = new Guest();
             using (var httpClient = new HttpClient())
             {
@@ -35,14 +37,12 @@ namespace SeaSharpHotel_Gäst.Controllers
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     receivedGuest = JsonConvert.DeserializeObject<Guest>(apiResponse);
-                    ViewData["Succes"] = "Your";
                 } 
             }
             return RedirectToAction("Index", "Home");
             //lägger in det sen
             /* try
              {
-
                  return RedirectToAction(nameof(Index));
              }
              catch
