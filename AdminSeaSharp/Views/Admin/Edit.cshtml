@@ -60,18 +60,18 @@
     </div>
     <div class="form-group">
         <label asp-for="Password"></label>
-        <input class="form-control" asp-for="Password" readonly />
+        <input class="form-control" asp-for="Password" />
 
     </div>
     <div class="text-center">
-        <button type="submit" class="btn btn-sm btn-primary">Edit</button>
+        <button type="submit" class="btn btn btn-primary">Spara</button>
     </div>
 
 </form>
 
 @if (ViewBag.Result =="Succes")
 {
-    <h2>Guest</h2>
+    <h2>Gäst</h2>
     <table class="table table-sm table-striped table-bordered m-2">
         <thead>
             <tr>
@@ -107,7 +107,7 @@
 }
 
 <div>
-    <a asp-action="Index">Tillbaka</a>
+    <a asp-action="Index"> < Tillbaka</a>
 </div>
 
 

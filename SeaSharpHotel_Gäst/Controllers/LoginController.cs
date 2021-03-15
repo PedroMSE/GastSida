@@ -46,7 +46,7 @@ namespace SeaSharpHotel_Gäst.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Password or Email provided were wrong. Please try again.");
+                ModelState.AddModelError("", "Felaktigt användarnamn eller lösenord");
                 return View();
             }
         }

@@ -13,8 +13,7 @@
 </head>
 <body>
 
-    <h3>Logga in</h3>
-    <br />
+    <h2>Logga in</h2>
 
     @using (Html.BeginForm())
     {
@@ -33,9 +32,6 @@
 
         </table>
         <p>@ViewBag.FelMeddelande</p>
-
-        <br />
-        @Html.ActionLink("To my pages >", "Index", "Guest")
 
     }
 </body>

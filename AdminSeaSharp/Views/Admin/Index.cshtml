@@ -15,9 +15,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Firstname)
             </th>
             <th>
@@ -55,9 +52,6 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Firstname)
                 </td>
                 <td>
@@ -90,7 +84,6 @@
                 <td>
                     @Html.ActionLink("Redigera", "Edit", new { id = item.Id }) |
                     @Html.ActionLink("Radera", "Delete", new { id = item.Id })
-                    @Html.ActionLink("Bookings","Bookings", new { id = item.Id })
                 </td>
             </tr>
         }
