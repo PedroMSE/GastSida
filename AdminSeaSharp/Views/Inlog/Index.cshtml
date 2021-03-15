@@ -1,6 +1,8 @@
 ﻿@model AdminSeaSharp.Models.Inlog
 @{
     ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+
 }
 
 <!DOCTYPE html>
@@ -36,7 +38,7 @@
         <p>@ViewBag.FelMeddelande</p>
     }
 
-    @Html.ActionLink("To admin pages >", "Index", "Admin")
+    
 
 </body>
 </html>

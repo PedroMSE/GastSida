@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] Hotell SeaSharp - Admin</title>
+    <title>@ViewData["Title"] - GuestAdmin</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="http://193.10.202.77/css/HotelSeasharp.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -12,7 +12,7 @@
     <img class="kund" src="http://193.10.202.77/images/kund.jpg" />
     <p style="text-align: right">Kundservice</p>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color:coral; opacity:0.6; width: 100%;">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background:rgba(255,127,80,0.6); width:100%;">
             <h1 class="rubrik1">Hotell SeaSharp</h1>
 
             <div class="container">
@@ -23,16 +23,26 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" style="font-weight:bold" asp-area="" asp-controller="Admin" asp-action="Index">Administrera Gäster</a>
-                        </li>
+
+                        
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" style="font-weight:bold" href="http://193.10.202.81/Seasharpadmin/Booking">Administrera Bokningar</a>
+                            <a class="nav-link text-dark" style="font-weight:bold" href=" http://193.10.202.77/KonferensrumSida/Conferences">KONFERENSADMIN</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link text-dark" style="font-weight:bold" asp-area="" asp-controller="Admin" asp-action="Signout">Logga ut</a>
+                            <a class="nav-link text-dark" style="font-weight:bold" href=" http://193.10.202.78/PublishGuestAdmin">GÄSTADMIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" style="font-weight:bold" href=" http://193.10.202.78/PublishGuestAdmin">SYSTEMADMIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" style="font-weight:bold" href="http://193.10.202.81/Seasharpadmin ">BOKNINGSADMIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" style="font-weight:bold" href="http://informatik12.ei.hv.se/resakt/Admin ">AKTIVITETADMIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" style="font-weight:bold" asp-area="" asp-controller="Login" asp-action="SignOut">Logga ut</a>
                         </li>
 
                     </ul>
