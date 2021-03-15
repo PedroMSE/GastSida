@@ -1,35 +1,37 @@
 ﻿@model SeaSharpHotel_Gäst.Models.Guest
 
 @{
-    ViewData["Title"] = "Guest";
+    ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_LayoutLogedIn.cshtml";
 }
 
 <link href="~/css/StyleSheet.css" rel="stylesheet" />
 
 <h1>@Html.DisplayFor(m => m.Firstname) @Html.DisplayFor(m => m.Lastname)</h1>
 <p>
-    @Html.ActionLink("Edit", "Edit", "Guest", new { id = Model.Id})
+    @Html.ActionLink("Redigera profil", "Edit", "Guest", new { id = Model.Id})
 </p>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                First Name
+                Förnamn
             </th>
             <th>
-                Last Name
+                Efternamn
             </th>
             <th>
-                Adress (Street)
+                Adress
             </th>
             <th>
-                Post Code
+                Postnummer
             </th>
             <th>
-                City
+                Stad
             </th>
             <th>
-                Telefone Number
+                Telefonnummer
             </th>
             <th>
                 E-Mail

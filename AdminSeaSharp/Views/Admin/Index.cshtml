@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<AdminSeaSharp.Models.Guest>
 
 @{
-    ViewData["Title"] = "Admin";
+    ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 <link href="~/css/StyleSheet.css" rel="stylesheet" />
-<p>@Html.ActionLink("Sign Out", "Signout")</p>
-<h1>Guests</h1>
 
+<h1>Gäster</h1>
+<br />
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Ny Gäst</a>
 </p>
 <table class="table">
     <thead>
@@ -87,8 +88,8 @@
                     @Html.DisplayFor(modelItem => item.Password)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Redigera", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Radera", "Delete", new { id = item.Id })
                     @Html.ActionLink("Bookings","Bookings", new { id = item.Id })
                 </td>
             </tr>

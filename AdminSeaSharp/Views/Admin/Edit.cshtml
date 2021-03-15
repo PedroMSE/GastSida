@@ -1,10 +1,12 @@
 ﻿@model AdminSeaSharp.Models.Guest
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 <link href="~/css/StyleSheet.css" rel="stylesheet" />
-<h1>Edit a Guest <a asp-action="Index" class="btn btn-sm btn-secondary"></a>Back</h1>
+<h1>Redigera gäst</h1>
+<br />
 <form method="post">
    <!-- <div class="form-group">
         <label asp-for="Id"></label>
@@ -105,7 +107,7 @@
 }
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Tillbaka</a>
 </div>
 
 

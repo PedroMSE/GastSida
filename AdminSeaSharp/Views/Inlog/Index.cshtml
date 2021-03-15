@@ -1,8 +1,7 @@
 ﻿@model AdminSeaSharp.Models.Inlog
 @{
-    ViewData["Title"] = "Sign In";
+    ViewData["Title"] = "";
 }
-
 
 <!DOCTYPE html>
 
@@ -15,22 +14,22 @@
 <body>
     @using (Html.BeginForm())
     {
-        <h4>Sign in as administrator</h4>
+        <h4>Logga in som administratör</h4>
 
         <table>
       
             <tr>
-                <td>Username:</td>
+                <td>Användarnamn:</td>
                 <td>@Html.TextBoxFor(m => m.UserName)</td>
             </tr>
  
             <tr>
-                <td>Password:</td>
+                <td>Lösenord:</td>
                 <td>@Html.PasswordFor(m => m.Password)</td>
             </tr>
 
             <tr>
-                <td><input type="submit" value="Sign In" /></td>
+                <td><input type="submit" value="Logga in" /></td>
             </tr>
 
         </table>
