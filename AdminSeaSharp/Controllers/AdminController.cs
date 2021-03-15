@@ -30,8 +30,6 @@ namespace AdminSeaSharp.Controllers
             guests = JsonConvert.DeserializeObject<List<Guest>>(jsonresponse);
 
             return View(guests);
-
-
         }
 
 #pragma warning disable CS0114 // Member hides inherited member; missing override keyword
