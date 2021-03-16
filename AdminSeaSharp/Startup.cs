@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using AdminSeaSharp.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.Extensions.Logging;
+using System.IO;
+using Serilog;
 
 namespace AdminSeaSharp
 {
@@ -21,6 +24,7 @@ namespace AdminSeaSharp
         }
 
         public IConfiguration Configuration { get; }
+        public object Logs { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -35,8 +39,10 @@ namespace AdminSeaSharp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
+            var path = Directory.GetCurrentDirectory();
+            loggerFactory.AddFile($"{path}\\Logs\\Log.txt");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

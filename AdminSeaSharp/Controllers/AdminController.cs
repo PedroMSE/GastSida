@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using System.Text;
 using Newtonsoft.Json.Converters;
+using Microsoft.Extensions.Logging;
 
 namespace AdminSeaSharp.Controllers
 {
@@ -19,9 +20,17 @@ namespace AdminSeaSharp.Controllers
     [Authorize]
     public class AdminController : Controller
     {
+        private readonly ILogger<AdminController> _logger;
+
+        public AdminController(ILogger<AdminController> logger)
+        {
+            _logger = logger;
+        }
+
         // GET: AdminController        
         public async Task<IActionResult> Index()
         {
+            _logger.LogInformation("Admin index");
             List<Guest> guests = new List<Guest>();
             HttpClient client = new HttpClient();
 
@@ -31,12 +40,12 @@ namespace AdminSeaSharp.Controllers
 
             return View(guests);
         }
-
 #pragma warning disable CS0114 // Member hides inherited member; missing override keyword
 
         public async Task<ActionResult> SignOut()
         #pragma warning restore CS0114 // Member hides inherited member; missing override keyword
         {
+            _logger.LogInformation("Admin Signout");
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Inlog");
         }
@@ -44,12 +53,14 @@ namespace AdminSeaSharp.Controllers
         // GET: AdminController/Details/5
         public ActionResult Details(int id)
         {
+            _logger.LogInformation("Admin Details");
             return View();
         }
 
         // GET: AdminController/Create
         public IActionResult Create()
         {
+            _logger.LogInformation("Admin Create");
             return View();
         }
 
@@ -58,7 +69,7 @@ namespace AdminSeaSharp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(Guest guest)
         {
-            
+            _logger.LogInformation("Admin Create Metod");
             Guest receivedGuest = new Guest();
             using (var httpClient = new HttpClient())
             {
@@ -71,21 +82,12 @@ namespace AdminSeaSharp.Controllers
                 }
             }
             return RedirectToAction("Index", "Admin");
-            //lägger in det sen
-            /* try
-             {
-
-                 return RedirectToAction(nameof(Index));
-             }
-             catch
-             {
-                 return View();
-             }*/
         }
 
         // GET: AdminController/Edit/5
         public async Task<ActionResult> Edit(int id)
         {
+            _logger.LogInformation("Admin Edit Sida");
             Guest guest = new Guest();
             using (var httpClient = new HttpClient())
             {
@@ -105,6 +107,7 @@ namespace AdminSeaSharp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(Guest guest)
         {
+            _logger.LogInformation("Admin Edit Metod");
             Guest receivedGuest = new Guest();
             using (var httpClient = new HttpClient())
             {
@@ -122,6 +125,7 @@ namespace AdminSeaSharp.Controllers
         // GET: AdminController/Delete/5
         public ActionResult Delete()
         {
+            _logger.LogInformation("Admin Delete Sida");
             return View();
         }
 
@@ -130,6 +134,7 @@ namespace AdminSeaSharp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Delete(int id)
         {
+            _logger.LogInformation("Admin Delete Metod");
             using (var httpClient = new HttpClient())
             {
                 using (var response = await httpClient.DeleteAsync("http://193.10.202.78/GuestAPI/api/Guest/" + id))

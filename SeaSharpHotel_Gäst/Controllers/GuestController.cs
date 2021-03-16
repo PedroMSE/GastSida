@@ -13,15 +13,24 @@ using Microsoft.AspNetCore.Authorization;
 using System.Text;
 using Newtonsoft.Json.Converters;
 using System.Web;
+using Microsoft.Extensions.Logging;
 
 namespace SeaSharpHotel_Gäst.Controllers
 {
     [Authorize]
     public class GuestController : Controller
     {
+        private readonly ILogger<GuestController> _logger;
+
+        public GuestController(ILogger<GuestController> logger)
+        {
+            _logger = logger;
+        }
+
         // GET: ProfileController        
         public async Task<IActionResult> Index(int id)
         {
+            _logger.LogInformation("Guest Index Sida");
             Guest currentGuest = null;
             using (var httpClient = new HttpClient())
             {
@@ -39,12 +48,14 @@ namespace SeaSharpHotel_Gäst.Controllers
         public async Task<ActionResult> SignOut()
         #pragma warning restore CS0114 // Member hides inherited member; missing override keyword
         {
+            _logger.LogInformation("Guest Signout");
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
         }
 
         public async Task<ActionResult> Edit(int id)
         {
+            _logger.LogInformation("Guest Edit Sida");
             Guest guest = new Guest();
             using (var httpClient = new HttpClient())
             {
@@ -61,6 +72,7 @@ namespace SeaSharpHotel_Gäst.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(Guest guest)
         {
+            _logger.LogInformation("Guest Edit Metod");
             using (var httpClient = new HttpClient())
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(guest), Encoding.UTF8, "application/json");

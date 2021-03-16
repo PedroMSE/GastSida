@@ -10,12 +10,10 @@ using System.Threading.Tasks;
 namespace AdminSeaSharp.Controllers
 {
     public class HomeController : Controller
-    {     
-
+    {
         public IActionResult Index()
         {
             return RedirectToAction("Index", "Admin");
         }
-
     }
 }
