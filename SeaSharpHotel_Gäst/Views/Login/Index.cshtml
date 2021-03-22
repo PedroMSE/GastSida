@@ -1,7 +1,7 @@
 ﻿@model SeaSharpHotel_Gäst.Models.GuestLogin
 
 @{
-    ViewData["Title"] = "Sign In";
+    ViewData["Title"] = "";
 }
 
 <!DOCTYPE html>
@@ -13,31 +13,25 @@
 </head>
 <body>
 
-    <h3>Sign In</h3>
-    <br />
+    <h2>Logga in</h2>
 
     @using (Html.BeginForm())
     {
         <table>
             <tr>
-                <td>User email:</td>
+                <td>Email:</td>
                 <td>@Html.TextBoxFor(m => m.E_Mail)</td>
             </tr>
             <tr>
-                <td>Password:</td>
+                <td>Lösenord:</td>
                 <td>@Html.PasswordFor(m => m.Password)</td>
             </tr>
             <tr>
-                <td><input type="submit" value="Sign in" /></td>
+                <td><input type="submit" value="Logga in" /></td>
             </tr>
 
         </table>
         <p>@ViewBag.FelMeddelande</p>
-
-        <br />
-        @Html.ActionLink("To my pages >", "Index", "Guest")
-        <br />
-        @Html.ActionLink("< Back to homepage", "Index", "Home")
 
     }
 </body>

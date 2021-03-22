@@ -9,23 +9,34 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Text;
+using Microsoft.Extensions.Logging;
 
 namespace SeaSharpHotel_Gäst.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
+
         public IActionResult Index()
         {
+            _logger.LogInformation("Guest Home Index");
             return View();
         }
         public IActionResult BliMedlem()
         {
+            _logger.LogInformation("Guest Signup Sida");
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> BliMedlem(Guest guest)
         {
+            _logger.LogInformation("Guest Signup Metod");
             guest.Status = "Standard";
             guest.Type = "Standard";
             Guest receivedGuest = new Guest();
@@ -40,15 +51,6 @@ namespace SeaSharpHotel_Gäst.Controllers
                 } 
             }
             return RedirectToAction("Index", "Home");
-            //lägger in det sen
-            /* try
-             {
-                 return RedirectToAction(nameof(Index));
-             }
-             catch
-             {
-                 return View();
-             }*/
         }
 
         public IActionResult Restaurants()
@@ -63,13 +65,10 @@ namespace SeaSharpHotel_Gäst.Controllers
         {
             return View();
         }
-
-
-
-
-
+        /*
         public IActionResult Privacy()
         {
+
             return View();
         }
 
@@ -78,5 +77,6 @@ namespace SeaSharpHotel_Gäst.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        */
     }
 }

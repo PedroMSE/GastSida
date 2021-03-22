@@ -11,20 +11,29 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Text;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.Extensions.Logging;
 
 namespace AdminSeaSharp.Controllers
 {
     public class InlogController : Controller
     {
-        //get: InlogController
-        public IActionResult Index()
+        private readonly ILogger<InlogController> _logger;
+
+        public InlogController(ILogger<InlogController> logger)
         {
+            _logger = logger;
+        }
+            //get: InlogController
+            public IActionResult Index()
+        {
+            _logger.LogInformation("Admin Inlog Sida");
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(Inlog adminInfo)
         {
+            _logger.LogInformation("Admin Inlog Metod");
             LoginResponse validatedInlog = null;//= new User();
             using (var httpClient = new HttpClient())
             {
@@ -36,7 +45,6 @@ namespace AdminSeaSharp.Controllers
                     validatedInlog = JsonConvert.DeserializeObject<LoginResponse>(apiResponse);
                 }
             }
-
             if (validatedInlog !=null)
             {
                 if (validatedInlog.Status == true)
@@ -63,19 +71,17 @@ namespace AdminSeaSharp.Controllers
                 ModelState.AddModelError("", "Inloggningen är inte godkänd");
                 return View();
 
-            }
-           
+            }      
         }
-        private async Task SetUserAuthenticated( string userName)
+        private async Task SetUserAuthenticated(string userName)
         {
             var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
             identity.AddClaim(new Claim(ClaimTypes.Name, userName));
 
             await HttpContext.SignInAsync(
                 CookieAuthenticationDefaults.AuthenticationScheme,
-                new ClaimsPrincipal(identity));  
+                new ClaimsPrincipal(identity));
         }
-
     }
 }
 

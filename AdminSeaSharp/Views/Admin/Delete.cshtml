@@ -1,14 +1,15 @@
 ﻿@model AdminSeaSharp.Models.Guest
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 <link href="~/css/StyleSheet.css" rel="stylesheet" />
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete your profile?</h3>
+<h1>Radera</h1>
+<br />
+<h3>Vill du verkligen ta bort den här profilen?</h3>
+<br />
 <div>
-    <h4>Guest</h4>
     <hr />
     <!--                 Den får ingen guest
     <dl class="row">
@@ -81,8 +82,8 @@
     </dl>
     -->
     <form asp-action="Delete">
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index">< Tillbaka</a>
+        | <input type="submit" value="Radera" class="btn btn-danger" /> 
     </form>
 
 </div>

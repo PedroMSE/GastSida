@@ -12,20 +12,28 @@ using Newtonsoft.Json;
 using System.Text;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 using Microsoft.AspNetCore.Http;
-
+using Microsoft.Extensions.Logging;
 
 namespace SeaSharpHotel_Gäst.Controllers
 {
     public class LoginController : Controller
     {
-        public IActionResult Index()
+        private readonly ILogger<LoginController> _logger;
+
+        public LoginController(ILogger<LoginController> logger)
         {
+            _logger = logger;
+        }
+            public IActionResult Index()
+        {
+            _logger.LogInformation("Guest Login Sida");
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Index(GuestLogin guestLogin)
         {
+            _logger.LogInformation("Guest Login Metod");
             Guest validatedLogin = null;
             using (var httpClient = new HttpClient())
             {
@@ -46,13 +54,14 @@ namespace SeaSharpHotel_Gäst.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Password or Email provided were wrong. Please try again.");
+                ModelState.AddModelError("", "Felaktigt användarnamn eller lösenord");
                 return View();
             }
         }
 
         private async Task SetGuestAuthenticated(Guest validatedLogin)
         {
+            _logger.LogInformation("Guest Validation");
             // Allt stämmer, logga in användaren
             var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
             identity.AddClaim(new Claim(ClaimTypes.Name, validatedLogin.E_Mail));
