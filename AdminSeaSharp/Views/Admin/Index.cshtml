@@ -6,10 +6,10 @@
 }
 <link href="~/css/StyleSheet.css" rel="stylesheet" />
 
-<h1>Gäster</h1>
+<h1>Gäst Lista</h1>
 <br />
 <p>
-    <a asp-action="Create">Ny Gäst</a>
+    <a asp-action="Create">Skapa Ny Gäst</a>
 </p>
 <table class="table">
     <thead>
@@ -82,8 +82,8 @@
                     @Html.DisplayFor(modelItem => item.Password)
                 </td>
                 <td>
-                    @Html.ActionLink("Redigera", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Radera", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Redigera Gäst", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Radera Gäst", "Delete", new { id = item.Id })
                 </td>
             </tr>
         }

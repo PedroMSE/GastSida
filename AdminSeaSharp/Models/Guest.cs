@@ -32,6 +32,7 @@ namespace AdminSeaSharp.Models
         [DisplayName("Typ")]
         public string Type { get; set; }
 
+        [DisplayName("Status")]
         public string Status { get; set; }
 
         [DisplayName("Email")]
@@ -39,6 +40,8 @@ namespace AdminSeaSharp.Models
 
         [DisplayName("Lösenord")]
         public string Password { get; set; }
+
+
 
     }
 }

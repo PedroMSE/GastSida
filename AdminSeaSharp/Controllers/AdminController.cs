@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 using System.Text;
 using Newtonsoft.Json.Converters;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace AdminSeaSharp.Controllers
 {
@@ -20,6 +21,8 @@ namespace AdminSeaSharp.Controllers
     [Authorize]
     public class AdminController : Controller
     {
+
+        
         private readonly ILogger<AdminController> _logger;
 
         public AdminController(ILogger<AdminController> logger)
@@ -60,6 +63,15 @@ namespace AdminSeaSharp.Controllers
         // GET: AdminController/Create
         public IActionResult Create()
         {
+            List<Categories> categorieses = new List<Categories>();
+            categorieses.Add(new Categories { Category = "Standard" });
+            categorieses.Add(new Categories { Category = "VIP" });
+            ViewData["Status"] = new SelectList(categorieses, "Category", "Category");
+
+            List<Categories> categories = new List<Categories>();
+            categories.Add(new Categories { Category = "Standard" });
+            categories.Add(new Categories { Category = "Organisation" });
+            ViewData["Type"] = new SelectList(categories, "Category", "Category");
             _logger.LogInformation("Admin Create");
             return View();
         }
@@ -70,6 +82,7 @@ namespace AdminSeaSharp.Controllers
         public async Task<ActionResult> Create(Guest guest)
         {
             _logger.LogInformation("Admin Create Metod");
+            
             Guest receivedGuest = new Guest();
             using (var httpClient = new HttpClient())
             {
